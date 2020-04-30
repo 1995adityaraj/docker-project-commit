@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+        dbosa:
+           image: mysql:5.7
+           volumes:
+                   - mysql_storage:/var/lib/mysql:rw
+           restart: always
+           ports:
+                   - 8081:8080
+           environment:
+                   - MYSQL_ROOT_PASSWORD=rhel
+                   - MYSQL_USERNAME=doc
+                   - MYSQL-PASSWORD=rhel
+                   - MYSQL_DATABASE=mydb                     
+        dbosb:
+               image: mysql:8.0.2
+               volumes:
+                       - mysql_storage_new:/var/lib/mysql:rw
+               ports:
+                       - 8082:8080
+               environment:
+                       - MYSQL_ROOT_PASSWORD=rhell
+                       - MYSQL_USERNAME=docc
+                       - MYSQL-PASSWORD=rhell
+                       - MYSQL_DATABASE=mydbb
+        
+        dbosc:
+                image: postgres
+                environment:
+                        - POSTGRES_USER=doccc
+                        - POSTGRES_PASSWORD=rhelll
+                        - POSRGRES_DB=mydbb
+        dbosd:
+                image: adminer
+                ports:
+                        - 8080:8080
+
+
+
+volumes:
+        mysql_storage:
+        mysql_storage_new:
+
+           
+                   
+                   
+                           
+             
+
+
+
